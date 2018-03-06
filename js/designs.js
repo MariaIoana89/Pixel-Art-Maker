@@ -4,29 +4,43 @@
 // When size is submitted by the user, call makeGrid()
 
 function makeGrid() {
+  
+//get table from html
+const table=$("#pixel_canvas");
+  
+//define rows and columns
+const rows=$("#input_height").val();
+const cols=$("#input_width").val();
 
-/*$('#sizePicker').submit(function(event) {
-
-})
-*/
-var rows=$("#input_height").val();
-var cols=$("#input_width").val();
-ourTable=$("#pixel_canvas");
-ourTable.children().remove();
-
-for(var i=0;i<rows;i++) {
-	ourTable.append("<tr></tr>");
-	for(var j=0;j<cols;j++) {
-		ourTable.children().last().append("<td></td>");
+table.children().remove();
+//create rows
+for(let i=0;i<rows;i++) {
+	table.append("<tr></tr>");
+  
+//create columns
+	for(let j=0;j<cols;j++) {
+		table.children().last().append("<td></td>");
 	}
 }
-ourTable.on("click","td", function() {
-	var color=$("input[type='color']").val();
-	$(this).attr("bgcolor", color);
+  
+table.on("click","td", function() {
+	const color=$('#colorPicker').val();
+	$(this).css("background-color", color);
 })
 }
 
-$("input[type='submit']").click(function(e) {
-	e.preventDefault();
-	makeGrid();
+//create grid on button click
+$('#sizePicker').submit(function(e) {
+e.preventDefault();
+makeGrid(); 
+});
+
+
+$("#pixel_canvas").on("dblclick","td", function() {
+    $(this).css("background-color", "");
+});
+
+//clear the table
+$("#clearGrid").on("click", function() {
+  $("td").css("background-color", "")
 });

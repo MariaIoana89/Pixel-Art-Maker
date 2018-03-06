@@ -1,12 +1,16 @@
 body {
     text-align: center;
+    background: -moz-radial-gradient(circle, yellow, lightgreen);
+  background: -webkit-radial-gradient(circle, yellow, lightgreen);
+  background: -o-radial-gradient(circle, yellow, lightgreen);
+  background: -ms-radial-gradient(circle, yellow, lightgreen);
 }
 
 h1 {
     font-family: Monoton;
     font-size: 70px;
     margin: 0.2em;
-    color: red;
+    color: green;
 }
 
 h2 {
@@ -38,4 +42,12 @@ td {
 
 input[type=number] {
     width: 6em;
+}
+#submitGrid {
+  background-color: #59b300;
+  border: 2px solid green;
+}
+#clearGrid {
+  background-color: #59b300;
+  border: 2px solid green;
 }
